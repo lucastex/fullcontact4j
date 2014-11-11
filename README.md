@@ -48,7 +48,7 @@ __Jackson__, a JSON library, for conversion of API responses.
 
 
 ##Working with FullContact4j##
-FullContact4j 2.0 is designed from the ground up to be as painless to use as possible. FullContact clients are customizable and require just one line of code to set up; requests take only one line to create and one to execute. FullContact4j abstracts away all the headaches associated with HTTP communication with the API, ranging from managing possible response scenarios to keeping your requests below your account's rate limit (queries per second). Make a request object, execute it, and get a response object back.
+FullContact4j 2.0 is designed from the ground up to be as painless to use as possible. FullContact clients are customizable and require just one line of code to set up; requests take only one line to create and one to execute. FullContact4j abstracts away all the headaches associated with HTTP communication with the API, ranging from managing possible response scenarios to keeping your requests below your account's rates limit (queries per second). Make a request object, execute it, and get a response object back.
 ###Quick Overview###
 Firstly, read the [API documentation](https://www.fullcontact.com/developer/docs/)! FullContact4j provides an object layer to FullContact API communication, but understanding webhooks, response flows, request parameters, and common snags is still important.
 
@@ -157,7 +157,7 @@ LocationEnrichmentResponse location = client.sendRequest(locationRequest);
 System.out.println("I found a new place in " + location.getContinent() + " with a population of " + location.getPopulation());
 ```
 
-__When you're done with the client, be sure to call `shutDown()` on it.__ Otherwise, you could end up with a small memory leak from unfinished request threads.
+__When you're done with the client, be sure to call `shutdown()` on it.__ Otherwise, you could end up with a small memory leak from unfinished request threads.
 ###Error Handling###
 If an error is encountered (these correspond to yellow/red non-2xx response codes on the [API flow diagrams](https://www.fullcontact.com/developer/docs/person/#flow-diagram)), a `FullContactException` is created with useful information about the error, including `errorCode` and a message from the FullContact APIs about the nature of the error. For synchronous requests, this will cause `sendRequest()` to throw `FullContactException`. In asynchronous requests, `FCCallback.failure(FullContactException exception)` is called instead.
 ###Supported APIs###
